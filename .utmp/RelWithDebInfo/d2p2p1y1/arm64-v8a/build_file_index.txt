@@ -1,0 +1,2 @@
+/Users/macbookair/orgil_deakin/was_vr_prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/CMakeLists.txt
+/Users/macbookair/orgil_deakin/was_vr_prototype/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/src/main/cpp/GameActivity/CMakeLists.txt

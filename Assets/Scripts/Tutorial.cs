@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,13 +20,18 @@ public class Tutorial : MonoBehaviour
 
         modalSequence[0].SetActive(true);
 
-        for (int i = 0; i < modalSequence.Length - 1; i++)
+        for (int i = 0; i < modalSequence.Length; i++)
         {
             var modal = modalSequence[i];
             int nextIndex = i + 1;
-            modal.GetComponentInChildren<Button>().onClick.AddListener(() =>
-            {
-                modal.SetActive(false);
+            int prevIndex = Mathf.Min(i - 1,0);
+            modal.GetComponent<Modal>().OnBackButtonClicked.AddListener(()=>{
+                modal.gameObject.SetActive(false);
+                ShowModal(modalSequence[prevIndex]);
+            });
+            modal.GetComponent<Modal>().OnNextButtonClicked.AddListener(()=>{
+                if(nextIndex >= modalSequence.Length) return;
+                modal.gameObject.SetActive(false);
                 ShowModal(modalSequence[nextIndex]);
             });
         }
